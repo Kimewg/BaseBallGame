@@ -61,10 +61,11 @@ class Game {
                 case "2" :
                     print(gameRecord())
                 case "3" :
-                    print("게임을 종료합니다.")
+                    print("숫자 야구 게임을 종료합니다.")
                     break
                 default:
                     print("올바른 번호를 입력해주세요.")
+                    return main()
                 }
             }
         }
@@ -81,15 +82,19 @@ class Game {
             let result = answer(computer: computer, player: player)
             print(result)
                 
-            if result == "정답입니다!" {
+            if result == "정답입니다" {
                 gamePlayCount.append(gameCount)
                 return main() // 정답을 맞췄을 경우 메인 회면으로 다시 돌아감
             }
         }
 
     }
+    // 메인화면에서 2를 눌렀을 경우, 게임 기록 보기
     func gameRecord()  {
         var result = ""
+        if gamePlayCount.isEmpty {
+            print("기록이 없습니다.")
+        }
         for (index, count) in gamePlayCount.enumerated() {
             result += "\(index + 1)번째 게임: 시도횟수 - \(count)\n"
         }
