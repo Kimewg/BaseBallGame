@@ -81,7 +81,7 @@ class Game {
             let result = answer(computer: computer, player: player)
             print(result)
                 
-            if result == "정답입니다" {
+            if result == "정답입니다!" {
                 gamePlayCount.append(gameCount)
                 return main() // 정답을 맞췄을 경우 메인 회면으로 다시 돌아감
             }
